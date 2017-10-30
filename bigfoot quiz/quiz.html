@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+ <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+   
+    
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    
+<title>Bigfoot Quiz</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+    
+body {
+background-image: url("bigback.jpg");
+font-family: 'Inconsolata', monospace;
+}
+
+#main {
+width: 80%;
+max-width: 950px;
+border: 1px gray solid;
+margin: auto;
+padding: 10px;
+background-color: white;
+border-radius: 10px;
+}
+
+#header {
+margin-top: 0;
+border: 2px solid black;
+padding: 5px;
+height: 250px;
+background: beige;
+background-image:url("bigfoot.gif");
+color: white;
+
+}
+    
+
+    
+label {
+display: block;
+}
+
+input{
+width: 30px;
+margin-left: 20px;
+}
+
+img {
+width: 200px;
+height: 200px;
+margin: auto;
+display: inline-block;
+}
+h2 {
+clear: both;
+padding-top: 20px;
+}
+
+button {
+width: 100px;
+margin-top: 20px;
+background-color: #C71585;
+border: none;
+color: white;
+padding 16px 32px;
+text-decoration: none;
+margin: 4px 2px;
+cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+<div class="row">
+<div id="main"><!-- open main div -->
+<div id="header"><!-- open header div -->
+
+<h1>How compatible are you with Big Foot?</h1>
+  
+</div><!-- close header div -->
+
+<form id="form1">
+<fieldset>
+
+<h2>What is your favorite meat dish?</h2>
+
+<table class="table">
+<thead>
+    <tr>
+    <td><label for="var_string"><input type="radio" name="meat" value="0" /> <img src="salad.jpg">
+    Meat? Yuck.</label></td>
+        
+<td><label for="var_join"><input type="radio" name="meat" value="0" /><img src="spaghetti.jpg">Spaghetti and meatballs.</label></td>
+        
+<td><label for="var_info"><input type="radio" name="meat" value="25" /><img src="bambi.jpg">Raw bambi, extra bloody.</label></td>
+        
+<td><label for="var_condition"><input type="radio" name="meat" value="0" /><img src="burger.jpg">Hamburgers.</label></td>
+</tr>
+</thead>
+</table>
+    
+<h2>What do you like to do in your sparetime?</h2>
+<table class="table">
+    <thead>
+    <tr>
+    <td><label for="sub_string"><input type="radio" name="spare" value="25"/><img src="blurry.jpg">Sabatoge photo ops.</label></td>
+<td><label for="sub_join"><input type="radio" name="spare" value="0" /><img src="hunt.jpg">Hunt.</label></td>
+<td><label for="sub_info"><input type="radio" name="spare" value="0" /><img src="polish.jpg">Paint your toes.</label></td>
+<td><label for="sub_condition"><input type="radio" name="spare" value="0" /><img src="classical.jpg">Listen to classical music.</label></td>
+    </tr>
+    </thead>
+    </table>
+
+<h2>Which mythical monster is your favorite?</h2>
+    <table class="table">
+    <thead>
+        <tr>
+<td><label for="cat_string"><input type="radio" name="monster" value="0" /><img src="kraken.jpg">The Kraken.</label></td>
+<td><label for="cat_join"><input type="radio" name="monster" value="25" /><img src="foot.jpg">Bigfoot.</label></td>
+<td><label for="cat_info"><input type="radio" name="monster" value="0" /><img src="loch.jpg">Ol' Nessie</label></td>
+<td><label for="cat_condition"><input type="radio" name="monster" value="0" /><img src="mail.jpg">The mailman.</label></td>
+        </tr>
+        </thead>
+        </table>
+
+<h2>How do you like your pizza?</h2>
+    <table class="table">
+    <thead>
+    <tr>
+<td><label for="if_string"><input type="radio" name="pizza" value="0" /><img src="pepp.jpg">Pepperoni.</label></td>
+<td><label for="if_join"><input type="radio" name="pizza" value="0" /><img src="cheese.jpg">Cheese.</label></td>
+<td><label for="if_info"><input type="radio" name="pizza" value="0" /><img src="pine.jpg">Pineapple and ham.</label></td>
+<td><label for="if_condition"><input type="radio" name="pizza" value="25" /><img src="free.jpg">Doesn't matter as long as it's free.</label></td>
+    </tr>
+    </thead>
+    </table>
+<button type="submit" value="Submit">Submit</button>
+</fieldset>
+</form>
+
+
+<p>Your compatibility is: <span id="grade">__</span></p>
+<p id="grade2"></p>
+<p> All Bigfoot gifs are courtesy of: Jack Link's Jerky</p>
+</div><!-- close main div -->
+</div>
+    
+<script>
+document.getElementById("form1").onsubmit=function() {
+       variable = parseInt(document.querySelector('input[name = "meat"]:checked').value);
+	   sub = parseInt(document.querySelector('input[name = "spare"]:checked').value);
+	   con = parseInt(document.querySelector('input[name = "monster"]:checked').value);
+	   ifstate = parseInt(document.querySelector('input[name = "pizza"]:checked').value);
+	   
+	   
+	   result = variable + sub + con + ifstate;
+	   
+	document.getElementById("grade").innerHTML = result;
+	   
+
+
+
+
+ grading = [
+	   {score:0,feedback:"You're not getting any Big-loving", image: "0.gif"},
+	   {score:25,feedback:"Maybe if you spend a little more time outdoors there will be a chance.", image: "25.gif"},
+	   {score:50,feedback:"Hm, you both have dated worse.", image: "50.gif"},
+	   {score:75,feedback:"If only you were a bit taller.", image: "75.gif"},
+	   {score:100,feedback:"Talk about a match made in heaven.", image: "100.gif"}
+	   ];
+	  
+for(i=0; i<grading.length; i++) {
+    if(result == grading[i].score) {
+    result2 = grading[i].feedback + "<br /><img src='" + grading[i].image + "' width='300'  />";
+	  }
+	  }
+
+document.getElementById("grade2").innerHTML = result2; 
+
+
+return false; // required to not refresh the page; just leave this here
+} //this ends the submit function
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
